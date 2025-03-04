@@ -1,0 +1,15 @@
+
+<form class="comment-form mb-3 mt-5" action="" [formGroup]="commentForm">
+  <div class="">
+    <!--[formControl]="commentCtrl"-->
+    <input class="font-bold p-2 outline-none" placeholder="Laissez un commentaire..." type="text" formControlName="comment">
+    <!--[disabled]="commentCtrl.invalid"-->
+    <button class="bg-purple-700 rounded-lg p-1 text-white text-sm font-bold" [disabled]="commentForm.invalid" (click)="onSubmitForm()">Envoyer</button>
+  </div>
+</form>
+
+<h1 class="font-bold text-xl mb-3">Commentaires</h1>
+<div class="comment-block" *ngFor="let comment of comments">
+  <h1 class="font-bold">{{ comment.comment | titlecase }}</h1>
+  <div class="font-bold text-sm">{{ comment.createdDate | date }}</div>
+</div>

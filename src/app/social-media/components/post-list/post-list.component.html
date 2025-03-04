@@ -1,0 +1,10 @@
+
+<h1 class="font-bold text-white text-xl mb-3">Liste des publications</h1>
+
+<div class="" *ngFor="let post of posts$ | async">
+  <app-post-list-item
+    [post]="post"
+    (postCommented)="onPostCommented($event)"
+  >
+  </app-post-list-item>
+</div>

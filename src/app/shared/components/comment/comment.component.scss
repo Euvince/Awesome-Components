@@ -1,0 +1,20 @@
+
+.comment-form {
+  border-top: 2px solid #bdb5b5;
+  padding-top: 15px;
+}
+
+.comment-form div:first-child input {
+  border: none;
+  border-bottom: 2px solid #bdb5b5;
+  width: 94%;
+}
+
+.comment-form div:first-child button:disabled {
+  cursor: not-allowed;
+}
+
+.comment-block {
+  border-bottom: 2px solid #000;
+  padding-bottom: 10px;
+}

@@ -1,0 +1,15 @@
+
+<div class="post-card bg-white p-4 pb-5 mt-2 rounded-lg">
+  <h1 hightlight color="orange" class="font-bold">{{ post.title | titlecase }}</h1>
+  <div class="font-bold text-sm">{{ post.createdDate | date }}</div>
+  <img *ngIf="post.imageUrl as imageURL" class="w-[100%]" [src]="imageURL" [alt]="post.title">
+  <!--| shorten-->
+  <div class="font-bold text-sm">{{ post.content }}</div>
+
+  <app-comment
+    *ngIf="post.comments.length > 0"
+    [comments]="post.comments"
+    (newComment)="onNewComment($event)"
+  >
+  </app-comment>
+</div>

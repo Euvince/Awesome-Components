@@ -1,0 +1,78 @@
+
+<form class="register-form bg-white rounded-lg text-black p-5 max-w-[800px] mx-auto" [formGroup]="mainForm">
+  <h2 class="font-bold text-xl mb-2">Inscription</h2>
+
+  <div class="personal-infos w-[100%] p-4 mt-2" [formGroup]="personalInfosForm">
+    <div class="personal-infos-title font-bold mb-3">Informations personnelles</div>
+    <div class="flex">
+      <div class="flex flex-col w-[50%]">
+        <input class="mt-2  font-bold p-2 outline-none rounded-lg" type="text" placeholder="Nom*" name="" id="" formControlName="firstname">
+        <!--<span class="text-red-500 font-bold text-sm">Ce champ est requis</span>-->
+      </div>
+      <div class="ml-10 flex flex-col w-[50%]">
+        <input class="mt-2 font-bold p-2 outline-none rounded-lg" type="text" placeholder="Prénom(s)*" name="" id="" formControlName="lastname">
+        <!--<span class="text-red-500 font-bold text-sm">Ce champ est requis</span>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="contact-preference w-[100%] p-4 mt-2">
+    <div class="contact-preference-title font-bold mb-3">Comment préférez-vous être contacté(e) ?</div>
+    <div class="radios flex">
+      <div class="email-radio-button">
+        <input class="pt-2 font-bold p-2 outline-none" type="radio" name="contact-preference" value="email" id="email" [formControl]="contactPreferenceCtrl">
+        <label class="ml-2 font-bold" for="email">Email</label>
+      </div>
+      <div class="phone-radio-button ml-10">
+        <input class="pt-2 font-bold p-2 outline-none" type="radio" name="contact-preference" value="phone" id="phone" [formControl]="contactPreferenceCtrl">
+        <label class="ml-2 font-bold" for="phone">Téléphone</label>
+      </div>
+    </div>
+  </div>
+
+  <div class="email w-[100%] p-4 mt-2" [formGroup]="emailForm" *ngIf="showEmailCtrl$ | async">
+    <div class="email-title font-bold mb-3">Email</div>
+    <div class="flex">
+      <div class="flex flex-col w-[50%]">
+        <input class="mt-2 font-bold p-2 outline-none rounded-lg" type="text" placeholder="Email" name="" id="" [formControl]="emailCtrl">
+        <!--<span class="text-red-500 font-bold text-sm">{{ getFormControlText(emailCtrl) }}</span>-->
+      </div>
+      <div class="ml-10 flex flex-col w-[50%]">
+        <input class="mt-2 font-bold p-2 outline-none rounded-lg" type="text" placeholder="Confirmez votre adresse mail" name="" id="" [formControl]="confirmEmailCtrl">
+        <!--<span class="text-red-500 font-bold text-sm">{{ getFormControlText(confirmEmailCtrl) }}</span>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="phone w-[100%] p-4 mt-2" *ngIf="showPhoneCtrl$ | async">
+    <div class="phone-title font-bold mb-3">Téléphone</div>
+    <div class="flex flex-col w-[50%]">
+      <input class="mt-2 font-bold p-2 outline-none rounded-lg" type="text" placeholder="Téléphone" name="" id="" [formControl]="phoneCtrl">
+      <!--<span class="text-red-500 font-bold text-sm">{{ getFormControlText(phoneCtrl) }}</span>-->
+    </div>
+  </div>
+
+  <div class="login-infos w-[100%] p-4 mt-2" [formGroup]="loginInfosForm">
+    <div class="login-infos-title font-bold mb-3">Informations de connexion</div>
+    <div class="flex flex-col w-[50%] mb-3">
+      <input class="mt-2 font-bold p-2 outline-none rounded-lg" type="text" placeholder="Nom d'utilisateur*" name="" id="" formControlName="username">
+      <!--<span class="text-red-500 font-bold text-sm">Ce champ est requis</span>-->
+    </div>
+    <div class="flex">
+      <div class="flex flex-col w-[50%]">
+        <input class="mt-2 font-bold p-2 outline-none rounded-lg" type="text" placeholder="Mot de passe*" name="" id="" [formControl]="passwordCtrl">
+        <!--<span class="text-red-500 font-bold text-sm">{{ getFormControlText(passwordCtrl) }}</span>-->
+      </div>
+      <div class="ml-10 flex flex-col w-[50%]">
+        <input class="mt-2 font-bold p-2 outline-none rounded-lg" type="text" placeholder="Confirmez votre mot de passe*" name="" id="" [formControl]="confirmPasswordCtrl">
+        <!--<span class="text-red-500 font-bold text-sm">{{ getFormControlText(confirmPasswordCtrl) }}</span>-->
+      </div>
+    </div>
+  </div>
+
+  <div class="flex justify-center">
+    <div class="loader mt-3" *ngIf="loading"></div>
+    <button class="bg-purple-700 rounded-lg p-2 font-bold text-sm mt-2 ml-3 text-white" [disabled]="loading" *ngIf="mainForm.valid" (click)="onSubmitForm()">ENRÉGISTRER</button>
+  </div>
+
+</form>
