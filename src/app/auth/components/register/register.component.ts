@@ -179,11 +179,11 @@ export class RegisterComponent implements OnInit {
   }
 
   public getFormControlText (ctrl: AbstractControl) : string {
-    if (ctrl.hasError('required')) return "Ce champ est requis"
-    if (ctrl.hasError('email')) return "Entrez une adresse mail valide"
-    if (ctrl.hasError('minlength') || ctrl.hasError('maxlength')) return "Entrez un numéro valide"
-    if (ctrl.hasError('validValidator')) return "Ce champ ne contient pas le mot clé VALID"
-    else return "Ce champ contient une erreur"
+    if (ctrl.hasError('required')) return "Ce champ est requis !"
+    if (ctrl.hasError('email')) return "Entrez une adresse mail valide !"
+    if (ctrl.hasError('minlength') || ctrl.hasError('maxlength')) return "Entrez un numéro valide !"
+    if (ctrl.hasError('validValidator')) return "Ce champ ne contient pas le mot clé VALID !"
+    else return "Ce champ contient une erreur !"
   }
 
   public onSubmitForm () : void {
